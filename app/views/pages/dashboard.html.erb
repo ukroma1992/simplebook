@@ -1,0 +1,34 @@
+<div class="row">
+  <h1 class="text-center">Панель управления</h1>
+  <div class="col-md-4">
+    <h3 class="text-center">Книги
+      <%= link_to "Новая книга", new_book_path, class: "btn btn-primary btn-sm" %>
+    </h3>
+    <table class="table table-condensed">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Имя</th>
+          <th>В наличии</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @books.each do |book| %>
+        <tr>
+          <td><%= book.id %></td>
+          <td><%= link_to book.name, book_path(book) %></td>
+          <td><%= book.availability %></td>
+          <td><%= link_to "Изменить", edit_book_path(book) %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-4">
+    <h3 class="text-center">Покупки</h3>
+  </div>
+  <div class="col-md-4">
+    <h3 class="text-center">Продажи</h3>
+  </div>
+</div>
