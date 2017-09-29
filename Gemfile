@@ -17,6 +17,7 @@ gem 'jbuilder', '~> 2.5'
 gem "twitter-bootstrap-rails"
 gem 'simple_form'
 gem 'devise'
+gem "cancan"
 
 
 group :development, :test do
