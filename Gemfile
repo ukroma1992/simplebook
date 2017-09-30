@@ -18,6 +18,7 @@ gem "twitter-bootstrap-rails"
 gem 'simple_form'
 gem 'devise'
 gem "cancan"
+gem "paperclip", "~> 5.0.0"
 
 
 group :development, :test do

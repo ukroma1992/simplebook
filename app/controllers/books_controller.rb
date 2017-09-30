@@ -21,7 +21,7 @@ class BooksController < ApplicationController
     @book = current_user.books.new(book_params)
 
     if @book.save
-      redirect_to @book, notice: 'Book was successfully created.'
+      redirect_to @book, notice: 'Книга была успешно создана.'
     else
       render 'new'
     end
@@ -30,7 +30,7 @@ class BooksController < ApplicationController
   def update
     authorize! :manage, @book
     if @book.update(book_params)
-      redirect_to @book, notice: 'Book was successfully updated.'
+      redirect_to @book, notice: 'Книга была успешно обновлена.'
     else
       render 'edit'
     end
@@ -39,7 +39,7 @@ class BooksController < ApplicationController
   def destroy
     authorize! :manage, @book
     @book.destroy
-    redirect_to books_url, notice: 'Book was successfully destroyed.'
+    redirect_to books_url, notice: 'Книга была успешно удалена.'
   end
 
   private
@@ -49,6 +49,6 @@ class BooksController < ApplicationController
     end
 
     def book_params
-      params.require(:book).permit(:name, :author, :description, :price, :availability)
+      params.require(:book).permit(:name, :author, :description, :price, :availability, :image, :resource)
     end
 end
