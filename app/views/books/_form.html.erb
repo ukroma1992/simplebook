@@ -5,6 +5,9 @@
     <%= f.input :author, required: true, label: false, placeholder: "Автор" %>
     <%= f.input :description, required: true, label: false, placeholder: "Описание", input_html: {rows: 5} %>
     <%= f.input :price, required: true, label: false, placeholder: "Цена" %>
+    <%= f.input :image %>
+    <%= f.input :resource %>
+    
     <div class="checkbox text-center">
       <p>В наличии</p>
       <%= f.input :availability, required: false, label: false %>
