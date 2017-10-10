@@ -7,7 +7,7 @@ class TransactionsController < ApplicationController
     begin
       charge = Stripe::Charge.create(
         amount: book.price,
-        currency: "uah",
+        currency: "usd",
         card: token,
         description: current_user.email
       )
@@ -25,4 +25,5 @@ class TransactionsController < ApplicationController
     @sale = Sale.find_by!(guid: params[:guid])
     @book = @sale.book
   end
+  
 end

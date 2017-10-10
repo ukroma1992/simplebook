@@ -6,6 +6,15 @@
     <h3><%= @book.name %> by <%= @book.author %></h3>
     <p style="width: 500px;"><%= @book.description %></p>
     <h4 class="text-center"><%= @book.price.to_f / 100 %> грн.</h4>
+
+    <%= form_tag buy_path(slug: @book.slug) do %>
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+        data-amount="<%= @book.price %>"
+        data-name="SimpleBook"
+        data-description="<%= @book.name %>"
+    </script>
+    <% end %>
     <br>
     <%= link_to 'Изменить', edit_book_path(@book) %> |
     <%= link_to 'Назад', books_path %>
