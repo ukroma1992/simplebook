@@ -3,6 +3,8 @@ class Book < ApplicationRecord
   friendly_id :name, use: :slugged
 
   belongs_to :user
+  has_many :sales
+
   has_attached_file :image
   has_attached_file :resource
 
@@ -16,4 +18,6 @@ class Book < ApplicationRecord
 
   validates :image, attachment_presence: true
   validates :resource, attachment_presence: true
+
+  validates_numericality_of :price, greater_than: 49, message: "Must be at least 50 cents"
 end
